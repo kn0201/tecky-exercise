@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0630-ex2</title>
+    <script
+      src="https://kit.fontawesome.com/f963dd889e.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .content1 {
+        border-style: solid solid none solid;
+        border-width: 1px;
+        border-color: gray;
+        border-radius: 10px 10px 0 0;
+      }
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #747474;
+      }
+      .header div {
+        flex: 1;
+      }
+      .header i {
+        margin: 0 10px;
+      }
+      .fa-share-nodes {
+        color: #5684eb;
+      }
+
+      .playerlist {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .playerbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 250px;
+        border: solid;
+        border-width: 0 1px 1px 1px;
+        border-color: gray;
+        border-radius: 5px;
+        padding: 0 10px;
+      }
+
+      .third {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 10 0 10;
+        gap: 10px;
+      }
+
+      .playground div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #58b9ab;
+      }
+      .box {
+        display: flex;
+        width: 50px;
+        border: solid 1px #8aa1c9;
+        height: 50px;
+        background-color: #58b9ab;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        margin: 5px;
+        font-size: 48px;
+      }
+
+      .end {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #58b9ab;
+        border-style: none solid solid solid;
+        border-width: 1px;
+        border-color: gray;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .feedback {
+        font-size: 8px;
+        color: gray;
+        text-align: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content1">
+      <h3 class="header">
+        <i class="fa-solid fa-caret-down"></i>
+        <div>Medium</div>
+        <i class="fa-solid fa-share-nodes"></i>
+      </h3>
+
+      <div class="playerlist">
+        <span class="playerbox">
+          <span class="fa-solid fa-xmark"></span>
+          <span>-</span>
+        </span>
+        <span class="playerbox">
+          <i class="fa-solid fa-o"></i>
+          <span>-</span>
+        </span>
+      </div>
+
+      <div class="third">
+        <div class="fa-solid fa-xmark"></div>
+        <div>Turn</div>
+      </div>
+    </div>
+
+    <div class="playground">
+      <div class="playgroundbox">
+        <div class="1">
+          <span class="box"><i class="fa-solid fa-xmark"></i></span>
+          <span class="box"></span>
+          <span class="box"></span>
+        </div>
+        <div class="1">
+          <span class="box"></span>
+          <span class="box"></span>
+          <span class="box"></span>
+        </div>
+        <div class="1">
+          <span class="box"></span>
+          <span class="box"><i class="fa-solid fa-o"></i></span>
+          <span class="box"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="end">
+      <h3>RESTART GAME</h3>
+    </div>
+    <div class="feedback">Feedback</div>
+  </body>
+</html>
