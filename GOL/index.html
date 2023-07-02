@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Of Life</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <style>
+      h1,
+      h2,
+      h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .room {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      #start-stop {
+        width: 25%;
+        background-color: skyblue;
+        border: solid 1px gray;
+        border-radius: 10px;
+        color: white;
+        font-size: 2rem;
+      }
+
+      #reset {
+        width: 25%;
+        background-color: pink;
+        border: solid 1px gray;
+        border-radius: 10px;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .playgroundbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Game Of Life</h1>
+    <h2>Setting & Rules</h2>
+    <div class="control room">
+      <div class="width">
+        <label for="fwidth">Width:</label>
+        <input type="text" id="fwidth" name="fwidth" />
+      </div>
+      <div class="height">
+        <label for="fheight">Height:</label>
+        <input type="text" id="fheight" name="fheight" />
+      </div>
+      <div class="frame-rate">
+        <label for="ffps">Frame Rate:</label>
+        <input type="text" id="ffps" name="ffps" />
+      </div>
+    </div>
+    <div class="rule room">
+      <div class="survival">
+        <label for="fsurvival">Survival:</label>
+        <input type="text" id="fsurvival" name="fsurvival" />
+      </div>
+      <div class="reproduction">
+        <label for="freproduction">Reproduction:</label>
+        <input type="text" id="freproduction" name="freproduction" />
+      </div>
+    </div>
+    <div class="button room">
+      <button id="start-stop">Start / Stop</button>
+    </div>
+
+    <div class="playgroundbox">PlayGround</div>
+
+    <div class="button room">
+      <button id="reset">Reset Game</button>
+    </div>
+  </body>
+</html>
