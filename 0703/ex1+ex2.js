@@ -1,5 +1,5 @@
 let gameBoard = document.querySelector(".game-board-inner");
-let ChangeTurn = document.querySelector(".current-player-turn-container");
+let changeTurn = document.querySelector(".current-player-turn-container");
 let addCross =
   '<div class="player-x player-icon"><i class="bi bi-x-lg"></i></i></div>';
 let addCircle =
@@ -31,7 +31,7 @@ reset.onclick = function () {
     key.innerHTML = "";
   }
 
-  ChangeTurn.innerHTML = xTurn + "<span>Turn</span>";
+  changeTurn.innerHTML = xTurn + "<span>Turn</span>";
   turn = 0;
   xArray = [];
   oArray = [];
@@ -43,13 +43,13 @@ function TicTacToe() {
   if (turn == 0) {
     event.target.innerHTML = addCross;
     turn = 1;
-    ChangeTurn.innerHTML = oTurn + "<span>Turn</span>";
+    changeTurn.innerHTML = oTurn + "<span>Turn</span>";
     xArray.push(event.target.id);
     checkWinner(xArray);
   } else if (turn == 1) {
     event.target.innerHTML = addCircle;
     turn = 0;
-    ChangeTurn.innerHTML = xTurn + "<span>Turn</span>";
+    changeTurn.innerHTML = xTurn + "<span>Turn</span>";
     oArray.push(event.target.id);
     checkWinner(oArray);
   }
@@ -70,7 +70,7 @@ function checkWinner(playerArray) {
   for (let combo of combos) {
     console.log(combo);
     console.log(playerArray);
-    if (playerArray === combo) {
+    if (playerArray == combo) {
       return console.log(true);
     } else {
       continue;
