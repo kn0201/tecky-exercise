@@ -68,10 +68,8 @@ function checkWinner(playerArray) {
   ];
 
   for (let combo of combos) {
-    for (let key of combo) {
-      const result = playerArray.every((val) => key.includes(val));
+    const result = playerArray.every((val) => combo.includes(val));
 
-      console.log(result);
-    }
+    console.log(result);
   }
 }

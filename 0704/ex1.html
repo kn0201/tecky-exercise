@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0704 Ex-1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background-color: #f7cd45;
+        margin: 0 10% 0 10%;
+      }
+      .header-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 2rem 0 2rem 0;
+      }
+      .icon-container {
+        font-size: 1.5rem;
+      }
+
+      .navbar {
+        width: 100%;
+        margin-bottom: 0px;
+        padding: 0;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+      }
+      .navbar a {
+        display: block;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 20px;
+
+        text-transform: uppercase;
+      }
+      .navbar-nav {
+        flex-wrap: wrap;
+      }
+      .dropdown:hover {
+        cursor: pointer;
+      }
+
+      .topbox-container {
+        width: 120px;
+        height: 120px;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.4);
+        text-align: center;
+        color: white;
+        display: flexbox;
+        position: absolute;
+        z-index: 10;
+        bottom: auto;
+        right: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      hr {
+        margin-block-start: 10px;
+      }
+      .slide-container {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maincontent-container">
+      <div class="header-container">
+        <img
+          src="https://www.cssigniter.com/vip/acoustic/wp-content/uploads/sites/9/2013/01/acoustic_logo.png"
+          alt="Acoustic"
+        />
+        <div class="icon-container">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+          <i class="bi bi-dribbble"></i>
+          <i class="fa-brands fa-soundcloud"></i>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-light p-0">
+        <div class="container-fluid text-center">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-bs-reference="parent"
+              >
+                Homepage
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                <li><a class="dropdown-header" href="#">Homepage Alt1</a></li>
+                <li><a class="dropdown-item" href="#">Homepage Alt2</a></li>
+                <li><a class="dropdown-item" href="#">Homepage Alt3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a>news</a>
+            </li>
+            <li class="nav-item">
+              <a>shop</a>
+            </li>
+            <li class="nav-item">
+              <a>artists</a>
+            </li>
+            <li class="nav-item">
+              <a>discography</a>
+            </li>
+            <li class="nav-item">
+              <a>events</a>
+            </li>
+            <li class="nav-item">
+              <a>galleries</a>
+            </li>
+            <li class="nav-item">
+              <a>videos</a>
+            </li>
+            <li class="nav-item">
+              <a>fullwidth</a>
+            </li>
+            <li class="nav-item">
+              <a>contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="slide-container">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/Tecky/0704/img file/FccgEgjaMAE6_gq.jpg"
+                class="d-block w-100 img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/Tecky/0704/img file/FaajCqzVsAAYfJx.jpg"
+                class="d-block w-100 img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/Tecky/0704/img file/FalnAUHVQAEDD7Z.jpg"
+                class="d-block w-100 img-fluid"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="topbox-container container-fluid">
+        <p></p>
+        <hr />
+        <h1>The Party Of Your Life</h1>
+        <hr />
+        <h5>Reed more</h5>
+        <hr />
+        <p></p>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/f963dd889e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="ex1.js"></script>
+  </body>
+</html>
