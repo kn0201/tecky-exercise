@@ -1,44 +1,51 @@
-// let pattern = "+-+-+-+";
-
-// // expect outcome
-// // console.log('+-+-+-+');
-// // console.log(' -+-+- ');
-// // console.log('  +-+  ');
-// // console.log('   -   ');
-
-// let start = 0;
-// let end = pattern.length;
-// let space = " ";
-// // while (end > start) {
-// //   console.log(space + pattern.slice(start, end));
-// //   end--;
-// //   start++;
-// //   space += " ";
-// // }
-
-// for (let i = 0; i < pattern.length / 2; i++) {
-//   console.log(space + pattern.slice(start, end));
-//   end--;
-//   start++;
-//   space += " ";
-// }
-
-let data = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+let data = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 
 function Diamond(str) {
   let index = data.indexOf(str);
-  let value = data[index];
   let point = "‧";
-  console.log(index);
-  console.log(value);
-  let times = index * 2 + 1;
-  console.log(times);
-  let pointString = point.repeat(times);
-  console.log(pointString);
-  let pointArray = pointString.split("");
-  console.log(pointArray);
-  let ans = pointArray.splice(index, index + 1, value);
-  console.log(ans.join(""));
+
+  // console.log(index);
+
+  let size = index * 2 + 1;
+  // console.log(times);
+
+  let pointString = Array.from({ length: size }, () =>
+    new Array(size).fill(point)
+  );
+
+  pointString.forEach((row, i) => {
+    let position = Math.min(i, size - 1 - i);
+    row[index - position] = data[position];
+    row[index + position] = data[position];
+  });
+  return pointString.map((row) => row.join("")).join("\n");
 }
 
-Diamond("C");
+console.log(Diamond("Z"));
