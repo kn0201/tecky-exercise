@@ -1,0 +1,30 @@
+body {
+  background: linear-gradient(45deg, skyblue, pink);
+  margin: 0 5% 0 5%;
+}
+.navbar .nav-item:hover {
+  background: #353535;
+  box-shadow: inset 0 0 15px #000;
+}
+.navbar .nav-item:hover .nav-link {
+  color: #fff;
+}
+.navbar .nav-link {
+  text-transform: uppercase;
+  color: #000;
+}
+.navbar-nav {
+  flex-wrap: wrap;
+}
+.navbar a {
+  display: block;
+  font-size: 1rem;
+  padding: 20px 50px 20px 50px;
+  text-transform: uppercase;
+}
+.navbar-container .container-fluid {
+  --bs-gutter-x: 0;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
