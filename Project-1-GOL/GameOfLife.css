@@ -12,6 +12,7 @@ body {
 }
 .navbar .nav-item:hover .nav-link {
   color: #fff;
+  text-decoration: underline;
 }
 .navbar .nav-link {
   text-transform: uppercase;
@@ -31,4 +32,32 @@ body {
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.start-container button {
+  border: 0;
+  border-radius: 10px;
+  padding: 3px 30% 3px 30%;
+  margin: 20px;
+}
+
+#start {
+  background-color: skyblue;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#stop {
+  background-color: lightcoral;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#reset {
+  background-color: gray;
+  color: white;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
