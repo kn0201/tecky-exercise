@@ -1,6 +1,7 @@
 const unitLength = 20;
 const boxColor = 150;
-const strokeColor = 50;
+const strokeColor = 0;
+
 let BgColor = "255";
 
 let vid = document.getElementById("music");
@@ -75,8 +76,18 @@ function changePenColor(event) {
   penColor = event.target.value;
 }
 
+function displayImage(src, width, height) {
+  var img = document.createElement("img");
+  img.src = src;
+  img.width = width;
+  img.height = height;
+  document.body.appendChild(img);
+}
+
+let imageCell = displayImage("Tecky/Project-1-GOL/img/yukimin.png", 20, 20);
+
 function NewCanvas() {
-  const canvas = createCanvas(windowWidth - 50, windowHeight - 370);
+  const canvas = createCanvas(windowWidth - 50, windowHeight - 380);
   canvas.parent(document.querySelector("#canvas"));
 }
 

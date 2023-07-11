@@ -32,6 +32,7 @@ body {
   font-size: 1rem;
   margin: 10px 50px 10px 50px;
   text-transform: uppercase;
+  text-shadow: #fc0 1px 0 10px;
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
@@ -105,4 +106,13 @@ h2 {
   margin: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
