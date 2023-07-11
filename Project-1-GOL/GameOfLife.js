@@ -3,7 +3,7 @@ vid.volume = 0.05;
 
 const unitLength = 20;
 const boxColor = 80;
-const strokeColor = 80;
+const strokeColor = 255;
 
 let BgColor = "255";
 
@@ -236,6 +236,9 @@ document.querySelector("#reset-value").addEventListener("click", function () {
   loneliness = 2;
   overpopulation = 3;
   reproduction = 3;
+  floneliness.value = "";
+  foverpopulation.value = "";
+  freproduction.value = "";
 });
 
 document.querySelector("#reset").addEventListener("click", function () {

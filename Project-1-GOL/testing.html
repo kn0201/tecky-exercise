@@ -12,17 +12,48 @@
     }
   </style>
   <body>
-    <label for="fwidth">Width:</label>
-    <input type="text" class="input" id="fwidth" name="fwidth" />
-    <button>Submit</button>
-    <p id="result"></p>
-    <script>
-      let abc = 800;
-      let input = document.querySelector(".input");
-      let result = document.querySelector("#result");
-      input.addEventListener("change", function () {
-        abc = this.value;
-      });
-    </script>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <div class="col-6">
+            <figure class="figure">
+              <img
+                src="/Tecky/0704/img file/105285735_p0.jpg"
+                class="img-fluid"
+                alt="..."
+              />
+              <figcaption class="figure-caption">
+                <h3>Momosuzu Nene</h3>
+                <a>READ MORE</a>
+              </figcaption>
+              <figure class="figure">
+                <img
+                  src="/Tecky/0704/img file/105285735_p0.jpg"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <figcaption class="figure-caption">
+                  <h3>Momosuzu Nene</h3>
+                  <a>READ MORE</a>
+                </figcaption>
+              </figure>
+            </figure>
+          </div>
+        </div>
+        <div class="col-6">
+          <figure class="figure">
+            <img
+              src="/Tecky/0704/img file/105285735_p0.jpg"
+              class="img-fluid"
+              alt="..."
+            />
+            <figcaption class="figure-caption">
+              <h3>Momosuzu Nene</h3>
+              <a>READ MORE</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

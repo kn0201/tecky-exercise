@@ -37,3 +37,48 @@ body {
 .navbar-brand {
   text-shadow: #fc0 1px 0 10px;
 }
+.row .img-fluid {
+  padding: 1rem 1rem 4rem 1rem;
+  background-color: #fff;
+}
+.row .figure-caption {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.figure a {
+  padding: 0;
+}
+.date-group {
+  width: 25%;
+  flex-direction: column;
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+.flex-fill {
+  max-width: 75%;
+  font-size: 2rem;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+.hobby {
+  max-width: 100%;
+
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.hobby div {
+  font-size: 3rem;
+}
+
+.first-container .row .my-bobby .img-fluid {
+  width: 800px;
+  height: 800px;
+}
