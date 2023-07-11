@@ -1,5 +1,9 @@
+html {
+  min-height: 100%;
+}
 body {
   background: linear-gradient(45deg, skyblue, white);
+  background: cover;
 }
 
 .container-fluid {
@@ -64,13 +68,41 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+#resize {
+  background-color: rgb(67, 163, 48);
+  color: white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#reset-value {
+  background-color: lightgray;
+  color: white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 0;
+  border-radius: 10px;
+  padding: 3px 30% 3px 30%;
+  margin: 20px;
+}
 
 h1,
 h2 {
   text-shadow: #fc0 1px 0 10px;
 }
 
-#canvas {
-  padding: 0;
-  margin: auto;
+#penColorInput {
+  align-content: center;
+}
+
+.music-btn {
+  font-size: 2rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 3px 30% 3px 30%;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
 }

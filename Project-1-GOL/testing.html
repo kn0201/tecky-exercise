@@ -11,5 +11,18 @@
       margin: 0 5% 0 5%;
     }
   </style>
-  <body></body>
+  <body>
+    <label for="fwidth">Width:</label>
+    <input type="text" class="input" id="fwidth" name="fwidth" />
+    <button>Submit</button>
+    <p id="result"></p>
+    <script>
+      let abc = 800;
+      let input = document.querySelector(".input");
+      let result = document.querySelector("#result");
+      input.addEventListener("change", function () {
+        abc = this.value;
+      });
+    </script>
+  </body>
 </html>

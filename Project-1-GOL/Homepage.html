@@ -48,6 +48,13 @@
                 >Contact Me</a
               >
             </li>
+            <li class="nav-item">
+              <audio controls autoplay id="music">
+                <source
+                  src="/Tecky/Project-1-GOL/02. Fleur (Instrumental).mp3"
+                />
+              </audio>
+            </li>
           </ul>
         </div>
       </nav>
@@ -173,5 +180,9 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let vid = document.getElementById("music");
+      vid.volume = 0.05;
+    </script>
   </body>
 </html>

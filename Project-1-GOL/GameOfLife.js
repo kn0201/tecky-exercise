@@ -2,23 +2,85 @@ const unitLength = 20;
 const boxColor = 150;
 const strokeColor = 50;
 let BgColor = "255";
+
+let vid = document.getElementById("music");
+vid.volume = 0.05;
+
+function playAudio() {
+  vid.play();
+}
+function pauseAudio() {
+  vid.pause();
+}
+
 let columns; /* To be determined by window width */
 let rows; /* To be determined by window height */
+
 let currentBoard;
 let nextBoard;
-let widthValue = document.getElementById("fwidth");
-let heightValue = document.getElementById("fheight");
+
 let penColor = penColorInput.value;
+
+let inputWidth = document.querySelector("#fwidth");
+let inputHeight = document.querySelector("#fheight");
+let newWidth = 800;
+let newHeight = 800;
+inputWidth.addEventListener("change", function () {
+  newWidth = this.value;
+  if (this.value == "") {
+    newWidth = 800;
+  }
+  if (this.value > windowWidth) {
+    alert("Input should smaller than " + windowWidth);
+  }
+});
+inputHeight.addEventListener("change", function () {
+  newHeight = this.value;
+  if (this.value == "") {
+    newHeight = 800;
+  }
+  if (this.value > windowHeight) {
+    alert("Input should smaller than " + windowHeight);
+  }
+});
+
+let loneliness = 2;
+let overpopulation = 3;
+let reproduction = 3;
+
+let inputLoneliness = document.querySelector("#floneliness");
+let inputOverpopulation = document.querySelector("#foverpopulation");
+let inputReproduction = document.querySelector("#freproduction");
+
+inputLoneliness.addEventListener("change", function () {
+  loneliness = this.value;
+  if (this.value == "") {
+    loneliness = 2;
+  }
+});
+inputOverpopulation.addEventListener("change", function () {
+  overpopulation = this.value;
+  if (this.value == "") {
+    overpopulation = 3;
+  }
+});
+inputReproduction.addEventListener("change", function () {
+  reproduction = this.value;
+  if (this.value == "") {
+    reproduction = 3;
+  }
+});
 
 function changePenColor(event) {
   penColor = event.target.value;
 }
 
-function setup() {
-  /* Set the canvas to be under the element #canvas*/
-  const canvas = createCanvas(windowWidth - 50, windowHeight - 340);
+function NewCanvas() {
+  const canvas = createCanvas(windowWidth - 50, windowHeight - 370);
   canvas.parent(document.querySelector("#canvas"));
+}
 
+function setupWithoutCanvas() {
   /*Calculate the number of columns and rows */
   columns = floor(width / unitLength);
   rows = floor(height / unitLength);
@@ -33,10 +95,31 @@ function setup() {
   speedSlider = document.querySelector("#speed-slider");
   speedSlider.addEventListener("input", updateFramerate);
   updateFramerate();
+
   // Now both currentBoard and nextBoard are array of array of undefined values.
   init(); // Set the initial values of the currentBoard and nextBoard
+}
 
-  // updateFramerate();
+function setup() {
+  /* Set the canvas to be under the element #canvas*/
+  NewCanvas();
+  /*Calculate the number of columns and rows */
+  columns = floor(width / unitLength);
+  rows = floor(height / unitLength);
+
+  /*Making both currentBoard and nextBoard 2-dimensional matrix that has (columns * rows) boxes. */
+  currentBoard = [];
+  nextBoard = [];
+  for (let i = 0; i < columns; i++) {
+    currentBoard[i] = [];
+    nextBoard[i] = [];
+  }
+  speedSlider = document.querySelector("#speed-slider");
+  speedSlider.addEventListener("input", updateFramerate);
+  updateFramerate();
+
+  // Now both currentBoard and nextBoard are array of array of undefined values.
+  init(); // Set the initial values of the currentBoard and nextBoard
 }
 
 function init() {
@@ -57,7 +140,7 @@ function draw() {
       if (currentBoard[x][y] == 1) {
         fill(penColor);
       } else {
-        fill(BgColor + "55");
+        fill(BgColor);
       }
       stroke(strokeColor);
       rect(x * unitLength, y * unitLength, unitLength, unitLength);
@@ -85,13 +168,13 @@ function generate() {
       }
 
       // Rules of Life
-      if (currentBoard[x][y] == 1 && neighbors < 2) {
+      if (currentBoard[x][y] == 1 && neighbors < loneliness) {
         // Die of Loneliness
         nextBoard[x][y] = 0;
-      } else if (currentBoard[x][y] == 1 && neighbors > 3) {
+      } else if (currentBoard[x][y] == 1 && neighbors > overpopulation) {
         // Die of Overpopulation
         nextBoard[x][y] = 0;
-      } else if (currentBoard[x][y] == 0 && neighbors == 3) {
+      } else if (currentBoard[x][y] == 0 && neighbors == reproduction) {
         // New life due to Reproduction
         nextBoard[x][y] = 1;
       } else {
@@ -141,29 +224,40 @@ function updateFramerate() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth - 50, windowHeight - 320);
-  setup();
+  resizeCanvas(windowWidth - 50, windowHeight - 370);
+  setupWithoutCanvas();
   init();
   draw();
 }
 
+document.querySelector("#reset-value").addEventListener("click", function () {
+  loneliness = 2;
+  overpopulation = 3;
+  reproduction = 3;
+});
+
 document.querySelector("#reset").addEventListener("click", function () {
-  init();
+  setup();
+  // init();
 });
 
 let checker = 0;
 document.querySelector("#stop").addEventListener("click", function () {
-  if ((checker = 0)) {
-    noLoop();
-    checker = 1;
-  } else if (checker != 0) {
-    loop();
-  }
+  noLoop();
+});
+
+document.querySelector("#resize").addEventListener("click", function () {
+  resizeCanvas(newWidth, newHeight);
+  setupWithoutCanvas();
 });
 
 document.querySelector("#start").addEventListener("click", function () {
-  resizeCanvas(widthValue.value, heightValue.value);
-  setup();
-  init();
-  draw();
+  loop();
+});
+
+document.querySelector("#pausemusic").addEventListener("click", function () {
+  pauseAudio();
+});
+document.querySelector("#playmusic").addEventListener("click", function () {
+  playAudio();
 });
