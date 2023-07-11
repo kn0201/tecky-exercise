@@ -5,10 +5,13 @@ body {
 .container-fluid {
   --bs-gutter-x: 0;
 }
-.navbar .nav-item:hover {
-  background: #353535;
-  box-shadow: inset 0 0 15px #000;
+
+.navbar-brand {
+  font-size: 2rem;
+  margin: 10px 50px 10px 50px;
+  text-transform: uppercase;
 }
+
 .navbar .nav-item:hover .nav-link {
   color: #fff;
   text-decoration: underline;
@@ -21,17 +24,14 @@ body {
   flex-wrap: wrap;
 }
 .navbar a {
-  display: block;
+  /* display: block; */
   font-size: 1rem;
-  padding: 20px 50px 20px 50px;
+  margin: 10px 50px 10px 50px;
   text-transform: uppercase;
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
   margin: 0 5% 0 5%;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
 }
 
 .start-container button {
@@ -44,7 +44,7 @@ body {
 #start {
   background-color: skyblue;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -52,7 +52,7 @@ body {
 #stop {
   background-color: lightcoral;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -60,7 +60,17 @@ body {
 #reset {
   background-color: gray;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2 {
+  text-shadow: #fc0 1px 0 10px;
+}
+
+#canvas {
+  padding: 0;
+  margin: auto;
 }

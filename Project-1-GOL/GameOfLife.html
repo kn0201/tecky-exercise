@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Game Of Life</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,46 +14,42 @@
   </head>
   <body>
     <div class="main-content-container container-fluid text-center has-bg-img">
-      <div class="navbar-container sticky-top">
-        <nav class="navbar navbar-expand-lg bg-* p-0">
-          <div class="container-fluid text-center sticky-top">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-wrap">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="Homepage.html"
-                  >Home Page</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="About-me.html"
-                  >About Me</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="GameOfLife.html"
-                  >Game Of Life</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="Contact.html"
-                  >Contact Me</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-lg bg-* sticky-top p-0">
+        <div class="container-fluid">
+          <div class="navbar-brand">KN</div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="Homepage.html"
+                >Home Page</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="About-me.html"
+                >About Me</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="GameOfLife.html"
+                >Game Of Life</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="Contact.html"
+                >Contact Me</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <h1 class="text-white">The Game Of Life</h1>
       <div class="control-container">
@@ -63,22 +59,27 @@
             <div class="col">
               <div class="width p-3">
                 <label for="fwidth">Width:</label>
-                <input type="number" id="fwidth" name="fwidth" value="800" />
+                <input type="text" id="fwidth" name="fwidth" value="" />
               </div>
             </div>
             <div class="col">
               <div class="height p-3">
                 <label for="fheight">Height:</label>
-                <input type="number" id="fheight" name="fheight" value="800" />
+                <input type="text" id="fheight" name="fheight" value="" />
               </div>
             </div>
             <div class="col">
               <div class="frame-rate p-3">
-                <label for="ffps">Frame Rate:</label>
-                <input type="number" id="ffps" name="ffps" />
+                <label for="speed-slider">Speed:</label>
+                <input
+                  type="range"
+                  id="speed-slider"
+                  min="1"
+                  max="60"
+                  value="20"
+                />
               </div>
             </div>
-
             <div class="col">
               <div class="survival p-3">
                 <label for="fheight">Survival:</label>
@@ -101,14 +102,21 @@
       </div>
       <div class="start-container container-fluid">
         <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <button id="start">Start</button>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <button id="stop">Stop</button>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <button id="reset">Reset</button>
+          </div>
+          <div class="col-3">
+            <input
+              id="penColorInput"
+              type="color"
+              onchange="changePenColor(event)"
+            />
           </div>
         </div>
       </div>

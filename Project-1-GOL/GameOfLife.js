@@ -1,14 +1,22 @@
-const unitLength = 30;
+const unitLength = 20;
 const boxColor = 150;
 const strokeColor = 50;
+let BgColor = "255";
 let columns; /* To be determined by window width */
 let rows; /* To be determined by window height */
 let currentBoard;
 let nextBoard;
+let widthValue = document.getElementById("fwidth");
+let heightValue = document.getElementById("fheight");
+let penColor = penColorInput.value;
+
+function changePenColor(event) {
+  penColor = event.target.value;
+}
 
 function setup() {
   /* Set the canvas to be under the element #canvas*/
-  const canvas = createCanvas(windowWidth, windowHeight - 100);
+  const canvas = createCanvas(windowWidth - 50, windowHeight - 340);
   canvas.parent(document.querySelector("#canvas"));
 
   /*Calculate the number of columns and rows */
@@ -22,8 +30,13 @@ function setup() {
     currentBoard[i] = [];
     nextBoard[i] = [];
   }
+  speedSlider = document.querySelector("#speed-slider");
+  speedSlider.addEventListener("input", updateFramerate);
+  updateFramerate();
   // Now both currentBoard and nextBoard are array of array of undefined values.
   init(); // Set the initial values of the currentBoard and nextBoard
+
+  // updateFramerate();
 }
 
 function init() {
@@ -42,9 +55,9 @@ function draw() {
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
       if (currentBoard[x][y] == 1) {
-        fill(boxColor);
+        fill(penColor);
       } else {
-        fill(255);
+        fill(BgColor + "55");
       }
       stroke(strokeColor);
       rect(x * unitLength, y * unitLength, unitLength, unitLength);
@@ -102,7 +115,7 @@ function mouseDragged() {
   const x = Math.floor(mouseX / unitLength);
   const y = Math.floor(mouseY / unitLength);
   currentBoard[x][y] = 1;
-  fill(boxColor);
+  fill(penColor);
   stroke(strokeColor);
   rect(x * unitLength, y * unitLength, unitLength, unitLength);
 }
@@ -122,14 +135,35 @@ function mouseReleased() {
   loop();
 }
 
+function updateFramerate() {
+  const newFramerate = parseInt(speedSlider.value); // Get the value from the speed slider
+  frameRate(newFramerate); // Set the new framerate
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth - 50, windowHeight - 320);
+  setup();
+  init();
+  draw();
+}
+
 document.querySelector("#reset").addEventListener("click", function () {
   init();
 });
 
-document.querySelector("#start").addEventListener("click", function () {
-  setup();
+let checker = 0;
+document.querySelector("#stop").addEventListener("click", function () {
+  if ((checker = 0)) {
+    noLoop();
+    checker = 1;
+  } else if (checker != 0) {
+    loop();
+  }
 });
 
-document.querySelector("#stop").addEventListener("click", function () {
+document.querySelector("#start").addEventListener("click", function () {
+  resizeCanvas(widthValue.value, heightValue.value);
   setup();
+  init();
+  draw();
 });
