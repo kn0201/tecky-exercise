@@ -27,8 +27,13 @@ body {
   font-size: 1rem;
   margin: 10px 50px 10px 50px;
   text-transform: uppercase;
+  text-shadow: #fc0 1px 0 10px;
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
   margin: 0 5% 0 5%;
+}
+
+.navbar-brand {
+  text-shadow: #fc0 1px 0 10px;
 }

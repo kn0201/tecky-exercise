@@ -1,11 +1,11 @@
-const unitLength = 20;
-const boxColor = 150;
-const strokeColor = 0;
-
-let BgColor = "255";
-
 let vid = document.getElementById("music");
 vid.volume = 0.05;
+
+const unitLength = 20;
+const boxColor = 80;
+const strokeColor = 80;
+
+let BgColor = "255";
 
 function playAudio() {
   vid.play();
@@ -76,18 +76,8 @@ function changePenColor(event) {
   penColor = event.target.value;
 }
 
-function displayImage(src, width, height) {
-  var img = document.createElement("img");
-  img.src = src;
-  img.width = width;
-  img.height = height;
-  document.body.appendChild(img);
-}
-
-let imageCell = displayImage("Tecky/Project-1-GOL/img/yukimin.png", 20, 20);
-
 function NewCanvas() {
-  const canvas = createCanvas(windowWidth - 50, windowHeight - 380);
+  const canvas = createCanvas(windowWidth - 100, windowHeight - 390);
   canvas.parent(document.querySelector("#canvas"));
 }
 
@@ -151,10 +141,11 @@ function draw() {
       if (currentBoard[x][y] == 1) {
         fill(penColor);
       } else {
-        fill("rgba(0,0,0,0)");
+        erase(255, 0);
       }
       stroke(strokeColor);
       rect(x * unitLength, y * unitLength, unitLength, unitLength);
+      noErase();
     }
   }
 }
@@ -235,7 +226,7 @@ function updateFramerate() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth - 50, windowHeight - 370);
+  resizeCanvas(windowWidth - 100, windowHeight - 390);
   setupWithoutCanvas();
   init();
   draw();

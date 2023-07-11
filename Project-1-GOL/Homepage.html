@@ -10,11 +10,15 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="Homepage.css" />
     <style></style>
   </head>
   <body>
-    <div class="main-content-container">
+    <div class="main-content-container sticky-top">
       <nav class="navbar navbar-expand-lg bg-* sticky-top p-0">
         <div class="container-fluid">
           <div class="navbar-brand">KN</div>
@@ -24,7 +28,8 @@
                 class="nav-link active"
                 aria-current="page"
                 href="Homepage.html"
-                >Home Page</a
+              >
+                <i class="bi bi-house"></i> Home Page</a
               >
             </li>
             <li class="nav-item">
@@ -32,7 +37,7 @@
                 class="nav-link active"
                 aria-current="page"
                 href="About-me.html"
-                >About Me</a
+                ><i class="bi bi-file-earmark-person"></i> About Me</a
               >
             </li>
             <li class="nav-item">
@@ -40,20 +45,13 @@
                 class="nav-link active"
                 aria-current="page"
                 href="GameOfLife.html"
-                >Game Of Life</a
+                ><i class="bi bi-joystick"></i> Game Of Life</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="Contact.html"
-                >Contact Me</a
+                ><i class="bi bi-person-rolodex"></i> Contact Me</a
               >
-            </li>
-            <li class="nav-item">
-              <audio controls autoplay id="music">
-                <source
-                  src="/Tecky/Project-1-GOL/02. Fleur (Instrumental).mp3"
-                />
-              </audio>
             </li>
           </ul>
         </div>
@@ -87,10 +85,17 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="/Tecky/0704/img file/FaajCqzVsAAYfJx.jpg"
+              src="/Tecky/0704/img file/FccgEgjaMAE6_gq.jpg"
               class="d-block w-100"
               alt="..."
             />
+            <div class="carousel-caption d-none d-md-block">
+              <hr class="fw-bolder" />
+              <h1>Hi! I'm KN</h1>
+              <hr />
+              <h1>Welcome to my Personal Website</h1>
+              <hr class="fw-bolder" />
+            </div>
           </div>
           <div class="carousel-item">
             <img
@@ -98,13 +103,27 @@
               class="d-block w-100"
               alt="..."
             />
+            <div class="carousel-caption d-none d-md-block">
+              <hr class="fw-bolder" />
+              <h1>Hi! I'm KN</h1>
+              <hr />
+              <h1>Welcome to my Personal Website</h1>
+              <hr class="fw-bolder" />
+            </div>
           </div>
           <div class="carousel-item">
             <img
-              src="/Tecky/0704/img file/FccgEgjaMAE6_gq.jpg"
+              src="/Tecky/0704/img file/FaajCqzVsAAYfJx.jpg"
               class="d-block w-100"
               alt="..."
             />
+            <div class="carousel-caption d-none d-md-block">
+              <hr class="fw-bolder" />
+              <h1>Hi! I'm KN</h1>
+              <hr />
+              <h1>Welcome to my Personal Website</h1>
+              <hr class="fw-bolder" />
+            </div>
           </div>
         </div>
         <button
@@ -149,7 +168,7 @@
             <figure class="figure">
               <a href="GameOfLife.html">
                 <img
-                  src="/Tecky/0704/img file/FmWk7Q_aEAA-sOO.jpg"
+                  src="/Tecky/Project-1-GOL/img/wallpaper.jpg"
                   class="img-fluid"
                   alt="..."
               /></a>
@@ -180,9 +199,5 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      let vid = document.getElementById("music");
-      vid.volume = 0.05;
-    </script>
   </body>
 </html>

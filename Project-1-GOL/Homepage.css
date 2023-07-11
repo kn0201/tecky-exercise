@@ -36,6 +36,7 @@ body {
   font-size: 1rem;
   margin: 10px 50px 10px 50px;
   text-transform: uppercase;
+  text-shadow: #fc0 1px 0 10px;
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
@@ -44,6 +45,7 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
 .carousel-indicators {
   margin-bottom: -2rem;
 }
@@ -85,8 +87,7 @@ body {
 .section1-container .figure {
   padding-top: 20px;
 }
-.section1-container .col-4:hover {
-}
+
 .row .img-fluid {
   padding: 1rem;
   background-color: #fff;
@@ -102,4 +103,20 @@ body {
 
 .figure a {
   padding: 0;
+}
+
+.navbar-brand {
+  text-shadow: #fc0 1px 0 10px;
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    position: static !important;
+  }
+  .navbar .nav-link {
+    color: #353535;
+  }
+  .navbar .bg-light {
+    --bs-dark-rgb: var(--bs-light-rgb);
+  }
 }
