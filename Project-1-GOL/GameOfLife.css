@@ -1,6 +1,5 @@
 body {
-  background: linear-gradient(45deg, skyblue, pink);
-  margin: 0 5% 0 5%;
+  background: linear-gradient(45deg, skyblue, white);
 }
 
 .container-fluid {
@@ -29,6 +28,7 @@ body {
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
+  margin: 0 5% 0 5%;
 }
 .dropdown:hover .dropdown-menu {
   display: block;
@@ -45,19 +45,22 @@ body {
   background-color: skyblue;
   color: #fff;
   font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #stop {
   background-color: lightcoral;
   color: #fff;
   font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #reset {
   background-color: gray;
   color: white;
   font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
