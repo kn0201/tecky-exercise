@@ -2,8 +2,8 @@ let vid = document.getElementById("music");
 vid.volume = 0.05;
 
 const unitLength = 20;
-const boxColor = 80;
-const strokeColor = 255;
+const boxColor = "#CBEEF9";
+const strokeColor = "#CBEEF9";
 
 let BgColor = "255";
 
@@ -139,7 +139,7 @@ function draw() {
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
       if (currentBoard[x][y] == 1) {
-        fill(penColor);
+        fill(boxColor);
       } else {
         erase(255, 0);
       }
