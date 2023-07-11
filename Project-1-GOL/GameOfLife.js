@@ -151,7 +151,7 @@ function draw() {
       if (currentBoard[x][y] == 1) {
         fill(penColor);
       } else {
-        fill(BgColor);
+        fill("rgba(0,0,0,0)");
       }
       stroke(strokeColor);
       rect(x * unitLength, y * unitLength, unitLength, unitLength);
