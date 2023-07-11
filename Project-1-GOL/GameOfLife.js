@@ -144,7 +144,7 @@ function init() {
 }
 
 function draw() {
-  background(255);
+  // background(255);
   generate();
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
