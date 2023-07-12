@@ -78,117 +78,117 @@
         </div>
       </nav>
 
-      <h1 class="text-white">The Game Of Life</h1>
-      <div class="control-container">
-        <h2 class="text-white">Control & Rules</h2>
-        <div class="container-fluid text-center">
-          <div class="row row-cols-lg-5 g-2 g-lg-3">
-            <div class="col-4">
-              <div class="width p-2">
-                <label for="fwidth">Width:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="fwidth"
-                  name="fwidth"
-                  placeholder="800"
-                />
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="height p-2">
-                <label for="fheight">Height:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="fheight"
-                  name="fheight"
-                  placeholder="800"
-                />
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="frame-rate p-2">
-                <label for="speed-slider">Speed:</label>
-                <input
-                  type="range"
-                  id="speed-slider"
-                  min="1"
-                  max="60"
-                  value="20"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row row-cols-lg-5 g-2 g-lg-3">
-            <div class="col-3">
-              <div class="loneliness p-3">
-                <label for="floneliness">Loneliness:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="floneliness"
-                  name="floneliness"
-                  placeholder="2"
-                />
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="overpopulation p-3">
-                <label for="foverpopulation">Overpopulation:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="foverpopulation"
-                  name="foverpopulation"
-                  placeholder="3"
-                />
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="reproduction p-3">
-                <label for="freproduction">Reproduction:</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="freproduction"
-                  name="freproduction"
-                  placeholder="3"
-                />
-              </div>
-            </div>
-            <div class="col-3">
-              <button type="reset" id="reset-value">Reset Value</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="start-container container-fluid">
-        <div class="row">
-          <div class="col">
-            <button id="start">Start</button>
-          </div>
-          <div class="col">
-            <button id="stop">Stop</button>
-          </div>
-          <div class="col">
-            <button id="reset">Reset</button>
-          </div>
-          <div class="col">
-            <button id="resize">ReSize</button>
-          </div>
-          <div class="col">
-            <input
-              id="penColorInput"
-              type="color"
-              onchange="changePenColor(event)"
-            />
-          </div>
-        </div>
-      </div>
+      <h1 class="text-black">The Game Of Life</h1>
       <div class="playground-container">
         <div id="canvas"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+        <div class="control-container">
+          <h2 class="text-black">Control & Rules</h2>
+          <div class="start-container container-fluid">
+            <div class="row">
+              <div class="col">
+                <button id="start">Start</button>
+              </div>
+              <div class="col">
+                <button id="stop">Stop</button>
+              </div>
+              <div class="col">
+                <button id="reset">Reset</button>
+              </div>
+              <div class="col">
+                <button id="resize">ReSize</button>
+              </div>
+              <div class="col">
+                <button type="reset" id="reset-value">Clear</button>
+              </div>
+              <div class="col">
+                <input
+                  id="penColorInput"
+                  type="color"
+                  onchange="changePenColor(event)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid text-center">
+            <div class="row">
+              <div class="col">
+                <div class="loneliness p-2">
+                  <label for="floneliness">Loneliness:</label>
+                  <input
+                    type="text"
+                    class="input"
+                    id="floneliness"
+                    name="floneliness"
+                    placeholder="2"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="overpopulation p-2">
+                  <label for="foverpopulation">Overpopulation:</label>
+                  <input
+                    type="text"
+                    class="input"
+                    id="foverpopulation"
+                    name="foverpopulation"
+                    placeholder="3"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="reproduction p-2">
+                  <label for="freproduction">Reproduction:</label>
+                  <input
+                    type="text"
+                    class="input"
+                    id="freproduction"
+                    name="freproduction"
+                    placeholder="3"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="width p-2">
+                  <label for="fwidth">Width:</label>
+                  <input
+                    type="text"
+                    class="input"
+                    id="fwidth"
+                    name="fwidth"
+                    placeholder="800"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="height p-2">
+                  <label for="fheight">Height:</label>
+                  <input
+                    type="text"
+                    class="input"
+                    id="fheight"
+                    name="fheight"
+                    placeholder="800"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="frame-rate p-2">
+                  <label for="speed-slider">Speed:</label>
+                  <input
+                    type="range"
+                    id="speed-slider"
+                    min="1"
+                    max="60"
+                    value="20"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-lg-5 g-2 g-lg-3"></div>
       </div>
       <video autoplay muted loop id="myVideo">
         <source src="/PreTecky/TeckySource/Fleur v2.mp4" type="video/mp4" />

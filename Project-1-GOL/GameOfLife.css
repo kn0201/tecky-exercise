@@ -11,7 +11,7 @@ body {
 }
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   margin: 0 5% 0 5%;
 }
 
@@ -35,7 +35,7 @@ body {
 .navbar a {
   /* display: block; */
   font-size: 1rem;
-  margin: 10px 50px 10px 50px;
+  margin: 10px 30px 10px 30px;
   text-transform: uppercase;
   text-shadow: #fc0 1px 0 10px;
 }
@@ -120,4 +120,15 @@ h2 {
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
+}
+
+.control-container {
+  text-shadow: #fc0 1px 0 10px;
+  color: #fff;
+}
+.width,
+.height,
+.frame-rate {
+  text-shadow: #fc0 1px 0 10px;
+  color: #fff;
 }

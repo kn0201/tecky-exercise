@@ -79,11 +79,64 @@ body {
 .hobby div {
   font-size: 3rem;
 }
-.my-hobby {
+/* .my-hobby {
   display: flex;
   justify-content: center;
-}
+  flex-direction: column;
+} */
 .col-3 .d-flex {
   display: flex;
   justify-content: center;
+}
+
+.figure {
+}
+/* .figure:hover {
+  transform: scale(1.1);
+} */
+
+p {
+  font-size: 17px;
+  align-items: center;
+}
+.box a {
+  display: inline-block;
+  background-color: orange;
+  padding: 15px;
+  border-radius: 3px;
+  color: black;
+  text-decoration: none;
+}
+.modal {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.4s;
+  visibility: hidden;
+  opacity: 0;
+}
+.content {
+  position: absolute;
+  background: white;
+  width: 50%;
+  padding: 1em 2em;
+  border-radius: 4px;
+}
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+.box-close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  color: #fe0606;
+  text-decoration: none;
+  font-size: 12px;
 }

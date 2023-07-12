@@ -124,3 +124,7 @@ body {
     --bs-dark-rgb: var(--bs-light-rgb);
   }
 }
+
+.figure:hover {
+  transform: scale(1.1);
+}

@@ -3,7 +3,7 @@ vid.volume = 0.05;
 
 const unitLength = 20;
 const boxColor = "#CBEEF9";
-const strokeColor = "#CBEEF9";
+let strokeColor = "#CBEEF9";
 
 let BgColor = "255";
 
@@ -14,22 +14,26 @@ function pauseAudio() {
   vid.pause();
 }
 
+let img;
+
+function preload() {
+  img = loadImage("123.jpeg");
+}
+
 let columns; /* To be determined by window width */
 let rows; /* To be determined by window height */
 
 let currentBoard;
 let nextBoard;
 
-let penColor = penColorInput.value;
-
 let inputWidth = document.querySelector("#fwidth");
 let inputHeight = document.querySelector("#fheight");
-let newWidth = 800;
-let newHeight = 800;
+let newWidth = 400;
+let newHeight = 400;
 inputWidth.addEventListener("change", function () {
   newWidth = this.value;
   if (this.value == "") {
-    newWidth = 800;
+    newWidth = 400;
   }
   if (this.value > windowWidth) {
     alert("Input should smaller than " + windowWidth);
@@ -38,7 +42,7 @@ inputWidth.addEventListener("change", function () {
 inputHeight.addEventListener("change", function () {
   newHeight = this.value;
   if (this.value == "") {
-    newHeight = 800;
+    newHeight = 400;
   }
   if (this.value > windowHeight) {
     alert("Input should smaller than " + windowHeight);
@@ -72,12 +76,15 @@ inputReproduction.addEventListener("change", function () {
   }
 });
 
+let penColor = "#CBEEF9";
+
 function changePenColor(event) {
   penColor = event.target.value;
+  strokeColor = event.target.value;
 }
 
 function NewCanvas() {
-  const canvas = createCanvas(windowWidth - 100, windowHeight - 390);
+  const canvas = createCanvas(windowWidth - 100, windowHeight - 350);
   canvas.parent(document.querySelector("#canvas"));
 }
 
@@ -133,15 +140,52 @@ function init() {
   }
 }
 
+// function draw() {
+//   generate();
+//   for (let x = 0; x < columns; x++) {
+//     for (let y = 0; y < rows; y++) {
+//       if (currentBoard[x][y] == 1) {
+//         image(
+//           img,
+//           x * unitLength,
+//           y * unitLength,
+//           unitLength,
+//           unitLength,
+//           0,
+//           0
+//         );
+//       } else {
+//         erase();
+//         rect(x * unitLength, y * unitLength, unitLength, unitLength);
+//         noErase();
+//         noFill();
+//         clear
+//       }
+//       stroke(strokeColor);
+//       rect(x * unitLength, y * unitLength, unitLength, unitLength);
+//     }
+//   }
+// }
+
 function draw() {
-  // background(255);
+  clear();
   generate();
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
       if (currentBoard[x][y] == 1) {
-        fill(boxColor);
+        // fill(penColor);
+        image(
+          img,
+          x * unitLength,
+          y * unitLength,
+          unitLength,
+          unitLength,
+          0,
+          0
+        );
       } else {
         erase(255, 0);
+        noFill();
       }
       stroke(strokeColor);
       rect(x * unitLength, y * unitLength, unitLength, unitLength);
@@ -200,7 +244,8 @@ function mouseDragged() {
   const x = Math.floor(mouseX / unitLength);
   const y = Math.floor(mouseY / unitLength);
   currentBoard[x][y] = 1;
-  fill(penColor);
+  // fill(boxColor);
+  image(img, x * unitLength, y * unitLength, unitLength, unitLength, 0, 0);
   stroke(strokeColor);
   rect(x * unitLength, y * unitLength, unitLength, unitLength);
 }
@@ -236,14 +281,19 @@ document.querySelector("#reset-value").addEventListener("click", function () {
   loneliness = 2;
   overpopulation = 3;
   reproduction = 3;
+  newWidth = 400;
+  newHeight = 400;
   floneliness.value = "";
   foverpopulation.value = "";
   freproduction.value = "";
+  fwidth.value = "";
+  fheight.value = "";
 });
 
 document.querySelector("#reset").addEventListener("click", function () {
   setup();
-  // init();
+  penColor = "#CBEEF9";
+  strokeColor = "#CBEEF9";
 });
 
 let checker = 0;
