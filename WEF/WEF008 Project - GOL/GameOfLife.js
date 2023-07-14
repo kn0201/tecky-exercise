@@ -1,12 +1,7 @@
+const unitLength = 20;
+
 let vid = document.getElementById("music");
 vid.volume = 0.05;
-
-const unitLength = 20;
-const boxColor = "#CBEEF9";
-let strokeColor = "#CBEEF9";
-
-let BgColor = "255";
-
 function playAudio() {
   vid.play();
 }
@@ -14,17 +9,18 @@ function pauseAudio() {
   vid.pause();
 }
 
-let img;
+let strokeColor = "#CBEEF9";
+let BgColor = "255";
+let penColor = "#CBEEF9";
+function changePenColor(event) {
+  penColor = event.target.value;
+  strokeColor = event.target.value;
+}
 
+let img;
 function preload() {
   img = loadImage("123.jpeg");
 }
-
-let columns; /* To be determined by window width */
-let rows; /* To be determined by window height */
-
-let currentBoard;
-let nextBoard;
 
 let inputWidth = document.querySelector("#fwidth");
 let inputHeight = document.querySelector("#fheight");
@@ -52,7 +48,6 @@ inputHeight.addEventListener("change", function () {
 let loneliness = 2;
 let overpopulation = 3;
 let reproduction = 3;
-
 let inputLoneliness = document.querySelector("#floneliness");
 let inputOverpopulation = document.querySelector("#foverpopulation");
 let inputReproduction = document.querySelector("#freproduction");
@@ -76,12 +71,11 @@ inputReproduction.addEventListener("change", function () {
   }
 });
 
-let penColor = "#CBEEF9";
+let columns; /* To be determined by window width */
+let rows; /* To be determined by window height */
 
-function changePenColor(event) {
-  penColor = event.target.value;
-  strokeColor = event.target.value;
-}
+let currentBoard;
+let nextBoard;
 
 function NewCanvas() {
   const canvas = createCanvas(windowWidth - 100, windowHeight - 350);
@@ -140,40 +134,12 @@ function init() {
   }
 }
 
-// function draw() {
-//   generate();
-//   for (let x = 0; x < columns; x++) {
-//     for (let y = 0; y < rows; y++) {
-//       if (currentBoard[x][y] == 1) {
-//         image(
-//           img,
-//           x * unitLength,
-//           y * unitLength,
-//           unitLength,
-//           unitLength,
-//           0,
-//           0
-//         );
-//       } else {
-//         erase();
-//         rect(x * unitLength, y * unitLength, unitLength, unitLength);
-//         noErase();
-//         noFill();
-//         clear
-//       }
-//       stroke(strokeColor);
-//       rect(x * unitLength, y * unitLength, unitLength, unitLength);
-//     }
-//   }
-// }
-
 function draw() {
   clear();
   generate();
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
       if (currentBoard[x][y] == 1) {
-        // fill(penColor);
         image(
           img,
           x * unitLength,
