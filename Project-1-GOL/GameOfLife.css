@@ -1,15 +1,26 @@
+html {
+  min-height: 100%;
+}
 body {
-  background: linear-gradient(45deg, skyblue, pink);
-  margin: 0 5% 0 5%;
+  background: linear-gradient(45deg, skyblue, white);
+  background: cover;
 }
 
 .container-fluid {
   --bs-gutter-x: 0;
 }
-.navbar .nav-item:hover {
-  background: #353535;
-  box-shadow: inset 0 0 15px #000;
+
+.navbar {
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  margin: 0 5% 0 5%;
 }
+
+.navbar-brand {
+  font-size: 2rem;
+  margin: 10px 50px 10px 50px;
+  text-transform: uppercase;
+}
+
 .navbar .nav-item:hover .nav-link {
   color: #fff;
   text-decoration: underline;
@@ -22,16 +33,15 @@ body {
   flex-wrap: wrap;
 }
 .navbar a {
-  display: block;
+  /* display: block; */
   font-size: 1rem;
-  padding: 20px 50px 20px 50px;
+  margin: 10px 30px 10px 30px;
   text-transform: uppercase;
+  text-shadow: #fc0 1px 0 10px;
 }
 .navbar-container .container-fluid {
   --bs-gutter-x: 0;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
+  margin: 0 5% 0 5%;
 }
 
 .start-container button {
@@ -44,20 +54,81 @@ body {
 #start {
   background-color: skyblue;
   color: #fff;
-  font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #stop {
   background-color: lightcoral;
   color: #fff;
-  font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #reset {
   background-color: gray;
   color: white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#resize {
+  background-color: rgb(67, 163, 48);
+  color: white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#reset-value {
+  background-color: lightgray;
+  color: white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 0;
+  border-radius: 10px;
+  padding: 3px 30% 3px 30%;
+  margin: 20px;
+}
+
+h1,
+h2 {
+  text-shadow: #fc0 1px 0 10px;
+}
+
+#penColorInput {
+  align-content: center;
+}
+
+.music-btn {
   font-size: 2rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 0;
+  border-radius: 10px;
+  padding: 3px 30% 3px 30%;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.control-container {
+  text-shadow: #fc0 1px 0 10px;
+  color: #fff;
+}
+.width,
+.height,
+.frame-rate {
+  text-shadow: #fc0 1px 0 10px;
+  color: #fff;
 }
