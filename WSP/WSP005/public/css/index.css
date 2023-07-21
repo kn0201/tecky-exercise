@@ -1,0 +1,97 @@
+html {
+  min-height: 100%;
+}
+body {
+  background: url("/css/qR3y4MoQj0_small.jpg");
+  background-size: cover;
+}
+.main-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background-color: #f2e489;
+  margin: 2rem;
+  box-shadow: 3px 3px 5px 5px #000;
+}
+
+.input {
+  margin: 0.5rem 1rem;
+}
+#sub2 {
+  margin-top: 1rem;
+}
+#myFile {
+  font-size: 0.3rem;
+  margin-left: 4rem;
+}
+#input1,
+#input2 {
+  margin: 1rem;
+}
+
+#admin {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+.redBox {
+  position: relative;
+  width: 12rem;
+  height: 30rem;
+  background-color: #7c201a;
+  margin: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#box1 {
+  /* position: absolute; */
+  height: 10rem;
+  width: 10rem;
+  left: 0;
+  right: 0;
+  top: 1rem;
+  margin: 0 auto;
+}
+.memo-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.bi {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 0;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.word {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  margin: 0.1rem 0.5rem 0.1rem auto;
+  padding: 0.7rem 0.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  height: fit-content;
+  width: fit-content;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.wall-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 1rem;
+}
