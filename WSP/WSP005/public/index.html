@@ -14,14 +14,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="/css/cssReset.css" />
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/public/css/cssReset.css" />
+    <link rel="stylesheet" href="/public/css/index.css" />
   </head>
   <body>
     <div class="main-content">
       <div class="memo-container">
-        <div class="redBox" id="box4">
-          <textarea placeholder="輸入文字" class="box" id="box1"></textarea>
+        <div class="redBox" id="box1">
+          <textarea placeholder="輸入文字" class="box" id="box2"></textarea>
           <br />
           <br />
           <input type="file" id="myFile" name="filename" />
@@ -33,26 +33,18 @@
           <a href="https://google.com">Login Via Google</a>
         </div>
 
-        <div class="wall-container" id="wallContainer">
-          <div class="box" id="box2">
-            <span>網上連儂牆</span>
+        <template
+          ><div class="box">
+            <textarea class="box content" disabled="true"></textarea>
             <button
               class="bi bi-trash-fill position-absolute top-0 start-100 translate-middle"
             ></button>
             <button
               class="bi bi-pencil-square position-absolute top-100 start-100 translate-middle"
-            ></button>
-          </div>
-          <div class="box" id="box3">
-            <span>香港加油</span>
-            <button
-              class="bi bi-trash-fill position-absolute top-0 start-100 translate-middle"
-            ></button>
-            <button
-              class="bi bi-pencil-square position-absolute top-100 start-100 translate-middle"
-            ></button>
-          </div>
-        </div>
+            ></button></div
+        ></template>
+
+        <div class="wall-container" id="wallContainer"></div>
       </div>
 
       <div class="word-container position-absolute top-0 end-0">
@@ -64,6 +56,20 @@
       </div>
     </div>
 
-    <script src="/js/index.js"></script>
+    <script src="/public/js/index.js"></script>
+    <script>
+      let template = document.querySelector("template");
+      let memoContainer = document.querySelector(".wall-container");
+      let id = 3;
+      let memos = ["網上連儂牆", "香港加油"];
+
+      for (let memo of memos) {
+        let node = template.content.querySelector(".box").cloneNode(true);
+        node.querySelector(".content").textContent = memo;
+        node.setAttribute("id", `box${id}`);
+        memoContainer.appendChild(node);
+        i++;
+      }
+    </script>
   </body>
 </html>

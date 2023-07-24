@@ -6,19 +6,19 @@ let wallContainer = document.getElementById("wallContainer");
 wordSubmit.addEventListener("click", () => {
   addNewMemo();
 });
-
-// deleteMemoButton.addEventListener("click", () => {
+// deleteMemoButton.addEventListener("click", (event) => {
 //   deleteMemo();
 // });
-let i = 5;
+
+let i = 3;
 function addNewMemo() {
-  let textarea = document.getElementById("box1");
+  let textarea = document.getElementById("box2");
   let content = textarea.value;
   if (content == "") {
     alert("此處不能為空白");
   } else {
     let newBox = document.createElement("div");
-    newBox.innerHTML = `<span>${content}</span><button class="bi bi-trash-fill position-absolute top-0 start-100 translate-middle"></button><button class="bi bi-pencil-square position-absolute top-100 start-100 translate-middle"></button>`;
+    newBox.innerHTML = `<textarea class="box" disabled="true">${content}</textarea><button class="bi bi-trash-fill position-absolute top-0 start-100 translate-middle"></button><button class="bi bi-pencil-square position-absolute top-100 start-100 translate-middle"></button>`;
     newBox.classList.add("box");
     newBox.setAttribute("id", `box${i}`);
     wallContainer.append(newBox);
@@ -26,6 +26,10 @@ function addNewMemo() {
   }
 }
 
-// function deleteMemo() {
-//   event.target.delete();
-// }
+function deleteMemo() {
+  let parentElementDiv = event.target.parentElement;
+  if (parentElementDiv.matches(".box")) {
+    console.log(parentElementDiv);
+    parentElementDiv.remove();
+  }
+}
