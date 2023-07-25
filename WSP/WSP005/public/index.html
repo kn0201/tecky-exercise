@@ -38,22 +38,37 @@
 
           <form
             title="Admin login form"
-            action="/contact"
+            action="/login"
             method="post"
+            data-for="guest"
             enctype="application/x-www-form-urlencoded"
           >
             <div class="form-title">連儂管理員專用</div>
             <input
-              type="email"
+              type="text"
+              name="login_id"
               placeholder="Login with email or username"
-              name="email"
             />
             <input
               type="password"
-              placeholder="Input password here"
               name="password"
+              placeholder="Input password here"
             />
-            <input type="submit" value="提交" />
+            <input type="submit" value="登入" />
+          </form>
+          <form
+            title="Logout form"
+            action="/logout"
+            method="POST"
+            data-for="admin"
+          >
+            <div class="form-title">連儂管理員專用</div>
+            <p>
+              你已登入為
+              <span class="login_id"></span>
+            </p>
+            <a href="/admin/dashboard.html">Dashboard</a>
+            <input type="submit" value="登出" />
           </form>
         </div>
 
@@ -61,8 +76,9 @@
           ><div class="memo">
             <div class="content-container">
               <div class="content"></div>
-              <a href="#popup-box"><img class="content-image" /></a>
-
+              <a href="#popup-box">
+                <img class="content-image" />
+              </a>
               <div id="popup-box" class="modal">
                 <div class="popup-image">
                   <img class="content-image" />
@@ -72,11 +88,9 @@
             </div>
             <button
               class="bi bi-trash-fill position-absolute top-0 start-100 translate-middle"
-              disabled
             ></button>
             <button
               class="bi bi-pencil-square position-absolute top-100 start-100 translate-middle"
-              disabled
             ></button></div
         ></template>
 
@@ -91,7 +105,8 @@
         <div class="word">牆</div>
       </div>
     </div>
-    <script src="/contact.js"></script>
+    <script src="/role.js"></script>
+    <!-- <script src="/contact.js"></script> -->
     <script src="/memos.js"></script>
     <script src="/public/js/index.js"></script>
   </body>

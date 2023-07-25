@@ -10,7 +10,19 @@ import { mkdirSync } from "fs";
 import jsonfile from "jsonfile";
 
 const app = express();
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
+
+app.get("/", (req, res) => {
+  res.redirect("/public");
+});
+
+app.use("/public", express.static("public"));
+app.use("/uploads", express.static("uploads"));
+
+let uploadDir = "uploads";
+mkdirSync(uploadDir, { recursive: true });
+
+// Counter Session
 
 app.use(
   expressSession({
@@ -23,6 +35,7 @@ app.use(
 declare module "express-session" {
   interface SessionData {
     counter: number;
+    username: string;
   }
 }
 
@@ -35,15 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.redirect("/public");
-});
-
-app.use("/public", express.static("public"));
-app.use("/uploads", express.static("uploads"));
-
-let uploadDir = "uploads";
-mkdirSync(uploadDir, { recursive: true });
+// POSTING MEMO
 
 let memos = [
   { content: "網上連儂牆" },
@@ -55,29 +60,8 @@ try {
   memos = jsonfile.readFileSync("memos.json");
 } catch (error) {}
 
-let contact = [{ id: 0, email: "admin@admin", password: "admin" }];
-
-try {
-  contact = jsonfile.readFileSync("contact.json");
-} catch (error) {}
-
 app.get("/memos.js", (req, res) => {
   res.end(`let memos = ${JSON.stringify(memos)}`);
-});
-
-app.get("/contact.js", (req, res) => {
-  res.end(`let contact = ${JSON.stringify(contact)}`);
-});
-let i = 1;
-app.post("/contact", async (req, res) => {
-  console.log("saving contact: ", req.body);
-  contact.push({
-    id: i,
-    email: req.body.email,
-    password: req.body.password,
-  });
-  await jsonfile.writeFile("contact.json", contact);
-  res.redirect("/");
 });
 
 app.post("/memos", (req, res) => {
@@ -123,6 +107,82 @@ app.post("/memos", (req, res) => {
 function toArray<T>(field: T[] | T | undefined): T[] {
   return Array.isArray(field) ? field : field ? [field] : [];
 }
+
+// let contact = [{ id: 0, username: "admin", password: "admin" }];
+
+// try {
+//   contact = jsonfile.readFileSync("contact.json");
+// } catch (error) {}
+
+// app.get("/contact.js", (req, res) => {
+//   res.end(`let contact = ${JSON.stringify(contact)}`);
+// });
+
+// LOGIN as admin
+
+type User = {
+  username: string;
+  password: string;
+};
+let users: User[] = jsonfile.readFileSync("users.json");
+
+app.post("/login", (req, res) => {
+  let { login_id, password } = req.body;
+  if (!login_id) {
+    res.status(400);
+    res.json({ error: "missing login_id" });
+    return;
+  }
+  if (!password) {
+    res.status(400);
+    res.json({ error: "missing password" });
+    return;
+  }
+  for (let user of users) {
+    if (user.username == login_id && user.password == password) {
+      req.session.username = login_id;
+      // res.end('login successfully')
+      res.redirect("/");
+      return;
+    }
+  }
+  res.status(401);
+  res.end("wrong username or password");
+  return;
+});
+
+app.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      res.status(502);
+      res.json({ error: "failed to destroy session" });
+      return;
+    }
+    // res.end('logout successfully')
+    res.redirect("/");
+  });
+});
+
+app.get("/role.js", (req, res) => {
+  res.end(`let login_id = ${JSON.stringify(req.session.username)}`);
+});
+
+const adminOnly = (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  if (req.session?.username) {
+    next();
+  } else {
+    // res.redirect('/')
+    res.status(403);
+    res.end("This page is only for admin");
+  }
+};
+
+// admin.html should be inside protected
+app.use("/admin", adminOnly, express.static("protected"));
 
 app.use((req, res) => {
   // res.redirect('/public/404.html')

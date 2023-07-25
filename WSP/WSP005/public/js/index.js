@@ -55,3 +55,10 @@ for (let memo of memos) {
   memoContainer.appendChild(node);
   id++;
 }
+
+if (login_id) {
+  document.body.dataset.role = "admin";
+  document.querySelector("form .login_id").textContent = login_id;
+} else {
+  document.body.dataset.role = "guest";
+}
