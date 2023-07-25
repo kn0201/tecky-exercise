@@ -42,12 +42,9 @@ for (let memo of memos) {
   let node = template.content.querySelector(".memo").cloneNode(true);
   node.querySelector(".content").textContent = memo.content;
   node.setAttribute("id", `memo${id}`);
+
   let img = node.querySelector(".content-image");
-  let popupBox = node.querySelector(".modal");
   if (memo.filename) {
-    let popupImg = popupBox.querySelector(".popup-image");
-    let finalImg = popupImg.querySelector(".content-image");
-    finalImg.src = "/uploads/" + memo.filename;
     img.src = "/uploads/" + memo.filename;
   } else {
     img.remove();
