@@ -60,14 +60,6 @@ try {
   memos = jsonfile.readFileSync("memos.json");
 } catch (error) {}
 
-async function getMemo() {
-  let res = await fetch("/memos.js");
-  console.log(res);
-  let memos = res;
-  return memos;
-}
-getMemo();
-
 app.get("/memos.js", (req, res) => {
   res.end(`let memos = ${JSON.stringify(memos)}`);
 });
