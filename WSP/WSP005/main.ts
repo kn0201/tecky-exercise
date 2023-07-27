@@ -1,5 +1,4 @@
 import express from "express";
-// import { Request, Response } from 'express'
 import { print } from "listening-on";
 import expressSession from "express-session";
 import crypto from "crypto";
@@ -8,6 +7,17 @@ import path from "path";
 import formidable from "formidable";
 import { mkdirSync } from "fs";
 import jsonfile from "jsonfile";
+import { Client } from "pg";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export const client = new Client({
+  database: process.env.DB_NAME,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+});
+client.connect();
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -51,9 +61,13 @@ app.use((req, res, next) => {
 // POSTING MEMO
 
 let memos = [
-  { content: "網上連儂牆" },
-  { content: "香港加油" },
-  { content: "yukimin", filename: "ebe1b6c4-08a3-4b2b-9058-d2c58ca9ee80.jpeg" },
+  { id: 1, content: "網上連儂牆" },
+  { id: 2, content: "香港加油" },
+  {
+    id: 3,
+    content: "yukimin",
+    filename: "ebe1b6c4-08a3-4b2b-9058-d2c58ca9ee80.jpeg",
+  },
 ];
 
 try {
@@ -64,6 +78,7 @@ app.get("/memos.js", (req, res) => {
   res.end(`let memos = ${JSON.stringify(memos)}`);
 });
 
+let id: number = 4;
 app.post("/memos", (req, res) => {
   let form = formidable({
     uploadDir,
@@ -93,9 +108,11 @@ app.post("/memos", (req, res) => {
     }
 
     memos.push({
+      id,
       content,
       filename,
     });
+    id++;
 
     await jsonfile.writeFile("memos.json", memos);
 
@@ -108,15 +125,7 @@ function toArray<T>(field: T[] | T | undefined): T[] {
   return Array.isArray(field) ? field : field ? [field] : [];
 }
 
-// let contact = [{ id: 0, username: "admin", password: "admin" }];
-
-// try {
-//   contact = jsonfile.readFileSync("contact.json");
-// } catch (error) {}
-
-// app.get("/contact.js", (req, res) => {
-//   res.end(`let contact = ${JSON.stringify(contact)}`);
-// });
+const filePath = "./WSP009-exercise.xlsx";
 
 // LOGIN as admin
 
