@@ -125,8 +125,6 @@ function toArray<T>(field: T[] | T | undefined): T[] {
   return Array.isArray(field) ? field : field ? [field] : [];
 }
 
-const filePath = "./WSP009-exercise.xlsx";
-
 // LOGIN as admin
 
 type User = {

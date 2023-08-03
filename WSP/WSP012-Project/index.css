@@ -1,0 +1,18 @@
+.slide-container {
+  padding: 0.2rem;
+}
+.container-fluid {
+  --bs-gutter-x: 0;
+}
+.main-container {
+  overflow-y: auto;
+}
+.row {
+  padding: 0.2rem;
+  --bs-gutter-x: 0.2rem;
+}
+
+.week-menu {
+  padding: 0.2rem;
+  background-color: white;
+}

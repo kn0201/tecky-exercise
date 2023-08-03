@@ -60,8 +60,6 @@ h1 {
   text-shadow: #fc0 1px 0 10px;
 }
 
-.figure {
-}
 .figure:hover {
   transform: scale(1.1);
 }
