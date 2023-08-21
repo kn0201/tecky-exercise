@@ -1,0 +1,7 @@
+npm init -y
+
+npm install -D jest
+
+npm install -D typescript ts-jest @types/jest @types/node ts-node ts-node-dev knex
+
+npm knex init -x ts

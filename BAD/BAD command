@@ -1,7 +1,0 @@
-yarn init -y
-
-yarn add --dev jest
-
-yarn add --dev typescript ts-jest @types/jest @types/node ts-node ts-node-dev
-
-yarn ts-jest config:init

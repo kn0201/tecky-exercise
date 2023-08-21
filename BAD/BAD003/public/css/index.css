@@ -1,0 +1,131 @@
+#app {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.page-title .word {
+  margin: 2px;
+  padding: 4px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: white;
+}
+
+.memo {
+  background-color: rgb(255, 242, 103);
+  width: 12rem;
+  height: 12rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.memo-inner {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.memo-image {
+  max-width: 100%;
+}
+
+.memo button {
+  position: absolute;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  cursor: pointer;
+  display: none;
+}
+[data-role="admin"] .memo button {
+  display: initial;
+}
+.memo button:hover {
+  background-color: #ddd;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.memo-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  height: min-content;
+  margin-top: 1rem;
+}
+
+form {
+  background-color: rgb(136, 26, 26);
+  color: white;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+[data-role="admin"] [data-for="guest"] {
+  display: none;
+}
+[data-role="guest"] [data-for="admin"] {
+  display: none;
+}
+
+form a {
+  color: coral;
+}
+
+form a:visited {
+  color: lightgreen;
+}
+
+form input[type="file"] {
+  color: white;
+}
+
+form input[type="submit"] {
+  width: fit-content;
+}
+
+.form-title {
+  color: red;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.form-list {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 1rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+main {
+  gap: 1rem;
+}

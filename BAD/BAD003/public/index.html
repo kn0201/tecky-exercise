@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/index.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="page-title" title="網上連儂牆"></div>
+      <main class="d-flex">
+        <div class="form-list">
+          <form
+            title="Memo submit form"
+            action="/memos"
+            method="POST"
+            enctype="multipart/form-data"
+            onsubmit="submitMemo(event)"
+          >
+            <textarea
+              name="content"
+              class="memo"
+              placeholder="Input memo content here"
+            ></textarea>
+            <input type="file" name="image" />
+            <input type="submit" value="提交" />
+          </form>
+          <form
+            id="loginForm"
+            title="Admin login form"
+            action="/login"
+            method="POST"
+            data-for="guest"
+          >
+            <div class="form-title">連儂管理員專用</div>
+            <input
+              type="text"
+              name="username"
+              placeholder="Login with email or username"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Input password here"
+            />
+            <input type="submit" value="登入" />
+          </form>
+          <form
+            title="Logout form"
+            action="/logout"
+            method="POST"
+            data-for="admin"
+            onsubmit="logout(event)"
+          >
+            <div class="form-title">連儂管理員專用</div>
+            <p>
+              你已登入為
+              <span class="username"></span>
+            </p>
+            <a href="/admin/dashboard.html">Dashboard</a>
+            <input type="submit" value="登出" />
+          </form>
+        </div>
+        <div>
+          <button onclick="loadMemos()">Refresh</button>
+        </div>
+        <div class="memo-list">
+          <div class="memo">
+            <div class="memo-inner">
+              <div class="memo-content"></div>
+              <img class="memo-image" />
+            </div>
+            <button aria-label="撤回 Memo" class="top-right del-btn">
+              <i class="fa-solid fa-trash" aria-hidden="true"></i>
+            </button>
+            <button aria-label="修正 Memo" class="bottom-right edit-btn">
+              <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+            </button>
+            <button aria-label="支持 Memo" class="bottom-left like-btn">
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            </button>
+            <button aria-label="不支持 Memo" class="bottom-left unlike-btn">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/js/index.js"></script>
+  </body>
+</html>

@@ -1,6 +1,9 @@
+memos.json
+users.json
+uploads
+.env
 node_modules
 package-lock.json
 package.json
 tsconfig.json
 yarn.lock
-jest.config.js
